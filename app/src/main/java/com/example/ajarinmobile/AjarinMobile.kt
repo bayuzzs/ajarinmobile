@@ -17,22 +17,17 @@ fun AjarinMobile() {
     val navController = rememberNavController()
     val navBackStackEntry = navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry.value?.destination?.route
-
-    Scaffold(
-        bottomBar = { AjarinBottomBar(navController = navController) }
-    ) { innerPadding ->
-        NavHost(
-            navController = navController,
-            startDestination = Screen.Beranda.route,
-            modifier = Modifier.padding(innerPadding)
-        ) {
-            composable(Screen.Login.route) {{}}
-            composable(Screen.Beranda.route) { BerandaScreen() }
-            composable(Screen.BelajarKu.route) {{}}
-            composable(Screen.QuizChampion.route) {{}}
-            composable(Screen.Profile.route) {{}}
-            composable(Screen.ForumDiskusi.route) {{}}
-            composable(Screen.PencarianKelas.route) {{}}
-        }
+    NavHost(
+        navController = navController,
+        startDestination = Screen.Beranda.route,
+        modifier = Modifier
+    ) {
+        composable(Screen.Login.route) { {} }
+        composable(Screen.Beranda.route) { BerandaScreen(navController = navController) }
+        composable(Screen.BelajarKu.route) { {} }
+        composable(Screen.QuizChampion.route) { {} }
+        composable(Screen.Profile.route) { {} }
+        composable(Screen.ForumDiskusi.route) { {} }
+        composable(Screen.PencarianKelas.route) { {} }
     }
 }

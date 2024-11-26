@@ -18,14 +18,6 @@ fun GradientBox(
     Box(
         modifier = modifier
     ) {
-
-//        Image(
-//            painter = painterResource(id = R.drawable.ic_background_login),
-//            contentDescription = null,
-//            contentScale = ContentScale.Crop,
-//            modifier = Modifier.matchParentSize()
-//        )
-
         content()
     }
 }

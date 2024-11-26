@@ -2,7 +2,6 @@
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,15 +14,13 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -37,20 +34,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.ajarinmobile.Component.GradientBox
 import com.example.ajarinmobile.R
 import com.example.ajarinmobile.navigation.Screen
 
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
 
     GradientBox(modifier = Modifier.fillMaxSize()) {
         Box(
@@ -143,11 +136,11 @@ fun LoginScreen() {
                         keyboardOptions = KeyboardOptions.Default,
                         keyboardActions = KeyboardActions.Default,
                         trailingIcon = {
-                            Icon(
-                                imageVector = Icons.Default.VisibilityOff,
-                                contentDescription = "",
-                                tint = Color(0xF661599)
-                            )
+//                            Icon(
+////                                imageVector = Icons.Default,
+//                                contentDescription = "",
+//                                tint = Color(0xF661599)
+//                            )
                         }
                     )
                     Spacer(modifier = Modifier.height(4.dp))
@@ -166,7 +159,7 @@ fun LoginScreen() {
                     Spacer(modifier = Modifier.height(44.dp))
 
                     Button(
-                        onClick = {},
+                        onClick = {navController.navigate(Screen.Beranda.route)},
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2563EB)),
                         modifier = Modifier
                             .fillMaxWidth()
@@ -220,12 +213,4 @@ fun LoginScreen() {
             )
         }
     }
-}
-
-
-
-@Preview(showBackground = true, widthDp = 412, heightDp = 917)
-@Composable
-fun loginScreenPreview() {
-    LoginScreen()
 }
